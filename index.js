@@ -4,8 +4,15 @@ for (i = 1; i <= 5; i++) {
   const prompt = newLocal;
   var nome = prompt('Digite o seu nome:');
   var salario = parseFloat(prompt('Informe o seu salário bruto:'));
-  var dependentes = parseInt(prompt('Digite o número de dependentes:') + 1);
-  var rp = salario / dependentes;
+  var dependentes = parseInt(prompt('Digite o número de dependentes:'));
+
+  for (var j = 1; j <= dependentes; j++) {
+
+    var gmdependentes = parseFloat(prompt("Digite o ganho mensal do dependente: "));
+    salario = salario + gmdependentes;
+  }
+
+  var rp = salario / (dependentes + 1);
   if (rp >= 500) {
     if (salario <= 1903.98) {
       var imposto = salario * 0.05;
